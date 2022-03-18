@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
-import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
-import { DoneListComponent } from './components/done-list/done-list.component';
-import { TaskInputComponent } from './components/task-input/task-input.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { DoneListComponent } from './components/wrapper/subComponents/done-list/done-list.component';
+import { FilterComponent } from './components/wrapper/subComponents/filter/filter.component';
+import { StatisticsComponent } from './components/wrapper/subComponents/statistics/statistics.component';
+import { TaskInputComponent } from './components/wrapper/subComponents/task-input/task-input.component';
+import { TaskListElementComponent } from './components/wrapper/subComponents/task-list-element/task-list-element.component';
+import { ToDoListComponent } from './components/wrapper/subComponents/to-do-list/to-do-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,11 +33,20 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     DoneListComponent,
     TaskInputComponent,
     FilterComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    TaskListElementComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    HttpClientModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

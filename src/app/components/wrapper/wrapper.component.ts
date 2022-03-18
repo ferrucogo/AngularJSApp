@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
+import { ComService } from 'src/app/services/com.service';
 
 @Component({
   selector: 'app-wrapper',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
 
-  constructor() { }
+  public drawerOpen = false;
+
+  constructor(public comS: ComService) { }
 
   ngOnInit(): void {
+    this.comS.isDrawerOpen.subscribe(isOpen => {
+      this.drawerOpen = isOpen;
+    });
+
   }
 
 }
